@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xena Live - الجوائز</title>
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f5f6fa;
+      text-align: center;
+      padding: 30px 15px;
+      color: #000;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .user-id {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0096FF;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .coin-icon {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+
+    .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #111;
+    }
+
+    .free {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0096FF;
+      margin-top: 5px;
+    }
+
+    input {
+      width: 80%;
+      padding: 12px;
+      margin: 20px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      background: #38bdf8;
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    .button:hover {
+      background: #0ea5e9;
+    }
+
+    #rewardsPage, #successPage {
+      display: none;
+    }
+
+    /* صفحة النجاح */
+    #successPage h1 {
+      color: green;
+      font-size: 26px;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #25D366;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- صفحة البداية -->
+  <div id="startPage">
+    <h1>🎁 Xena Live</h1>
+    <input type="text" id="userID" placeholder="أدخل معرفك هنا">
+    <br>
+    <button class="button" onclick="showRewards()">دخول الجوائز</button>
+  </div>
+
+  <!-- صفحة الجوائز -->
+  <div id="rewardsPage">
+    <h1>🎉 جوائزك 🎉</h1>
+    <div class="user-id" id="displayUserID"></div>
+
+    <!-- زر التأمين -->
+    <button class="button">🔒 تأمين الرصيد</button>
+
+    <!-- بطاقة الجائزة -->
+    <div class="card">
+      <img class="coin-icon" src="https://cdn-icons-png.flaticon.com/512/138/138292.png" alt="coin">
+      <div class="value">5,000,000</div>
+      <div class="free">مجانا</div>
+      <div>🏆 جائزة الحساب</div>
+    </div>
+
+    <!-- بطاقة التعويض -->
+    <div class="card">
+      <img class="coin-icon" src="https://cdn-icons-png.flaticon.com/512/138/138292.png" alt="coin">
+      <div class="value">3,000,000</div>
+      <div class="free">مجانا</div>
+      <div>🎮 تعويض الألعاب</div>
+      <button class="button" onclick="showSuccess()">اختيار التعويض</button>
+    </div>
+  </div>
+
+  <!-- صفحة النجاح -->
+  <div id="successPage">
+    <h1>✅ تمت العملية بنجاح</h1>
+    <p>📱 يرجى التواصل مع المشرفة عبر واتساب</p>
+    <a href="https://wa.me/201554317768" target="_blank" class="whatsapp-btn">
+      💬 تواصل عبر واتساب
+    </a>
+  </div>
+
+  <script>
+    function showRewards() {
+      const id = document.getElementById('userID').value.trim();
+      if(id === "") {
+        alert("يرجى إدخال معرفك أولاً!");
+        return;
+      }
+      document.getElementById('startPage').style.display = 'none';
+      document.getElementById('rewardsPage').style.display = 'block';
+      document.getElementById('displayUserID').innerText = "👤 معرفك: " + id;
+    }
+
+    function showSuccess() {
+      document.getElementById('rewardsPage').style.display = 'none';
+      document.getElementById('successPage').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
